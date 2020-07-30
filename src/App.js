@@ -8,14 +8,22 @@ const SplitMe = loadable(() => import('./SplitMe'), {
 
 const App = () => {
   const [visible, setVisible] = useState(false);
+
   const onClick = () => {
     setVisible(true);
   };
+
+  const onMouseOver = () => {
+    SplitMe.preload();
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p onClick={onClick}>Hello ppby!</p>
+        <p onClick={onClick} onMouseOver={onMouseOver}>
+          Hello ppby!
+        </p>
         {visible && <SplitMe />}
       </header>
     </div>
